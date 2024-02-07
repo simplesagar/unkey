@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/code-t
 import { cn } from "@/lib/utils";
 import { Highlight } from "prism-react-renderer";
 import { useState } from "react";
+import React from "react";
 import { CopyButton } from "./copy-button";
 import { BlogCodeDownload } from "./svg/blog-code-block";
 
@@ -33,9 +34,9 @@ const theme = {
   ],
 };
 export function BlogCodeBlock({ className, children }: any) {
-  const blocks = children.map((child: any) => child.props.children.props);
+  const blocks = React.Children.map(children, (child: any) => child.props.children.props);
 
-  const buttonLabels = children.map((child: any) =>
+  const buttonLabels = React.Children.map(children, (child: any) =>
     child?.props?.children?.props?.className.replace(/language-/, "").split(" "),
   );
   const [copyData, setCopyData] = useState(blocks[0].children);

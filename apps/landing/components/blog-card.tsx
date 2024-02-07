@@ -30,9 +30,11 @@ export function BlogCard({
   return (
     <div className={cn("flex flex-col p-0 m-0 gap-4", className)}>
       <div className="rounded-2xl bg-clip-border overflow-clip">
-        <Frame size="sm" className="max-sm:w-4/5">
-          <Image src={imageUrl!} width={1920} height={1080} alt="Hero Image" />
-        </Frame>
+        {imageUrl === undefined ? null : (
+          <Frame size="sm" className="max-sm:w-4/5">
+            <Image src={imageUrl!} width={1920} height={1080} alt="Hero Image" />
+          </Frame>
+        )}
       </div>
       <div className="flex flex-row gap-3">
         {tagList?.map((tag) => (

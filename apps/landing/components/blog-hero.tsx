@@ -42,9 +42,11 @@ export function BlogHero({
 }: BlogHeroProps) {
   return (
     <div className={cn("flex flex-col lg:flex-row w-full", className)}>
-      <Frame className="w-fit my-auto shadow-sm" size="lg">
-        <Image src={imageUrl!} width={1920} height={1080} alt="Hero Image" />
-      </Frame>
+      {imageUrl === undefined ? null : (
+        <Frame className="w-fit my-auto shadow-sm" size="lg">
+          <Image src={imageUrl!} width={1920} height={1080} alt="Hero Image" />
+        </Frame>
+      )}
       <div className="w-full sm:p-4 max-sm:p-4 md:pl-8 lg:pl-20">
         <div className="flex flex-row gap-4">
           {tags?.map((tag) => (
