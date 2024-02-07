@@ -89,7 +89,6 @@ const BlogArticleWrapper = async ({ params }: { params: { slug: string } }) => {
                 <h3 className="mb-4 mt-8 text-lg font-bold uppercase tracking-wide text-gray-600">
                   Table of Contents
                 </h3>
-
                 <div className="p-4">
                   {headings.map((heading) => {
                     return (

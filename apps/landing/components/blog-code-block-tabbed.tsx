@@ -33,13 +33,16 @@ const theme = {
     },
   ],
 };
-export function BlogCodeBlock({ className, children }: any) {
+export function BlogCodeBlockTabbed({ className, children }: any) {
   const blocks = React.Children.map(children, (child: any) => child.props.children.props);
+  console.log("Blocks", blocks);
 
   const buttonLabels = React.Children.map(children, (child: any) =>
     child?.props?.children?.props?.className.replace(/language-/, "").split(" "),
   );
-  const [copyData, setCopyData] = useState(blocks[0].children);
+  console.log("buttons", buttonLabels[0]);
+
+  const [copyData, setCopyData] = useState(blocks[0]?.children);
 
   function handleDownload() {
     const element = document.createElement("a");
